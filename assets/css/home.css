@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  background-color: #f0f0f0;
+ /*margin-left:300px;*/
+ /*background-color:grey;*/
+}
+
+h1 {
+  margin: 50px 0 30px;
+  text-align: center;
+}
+
+.faq-container {
+  max-width: 500px;
+  /* Top bottom 0 and left, right is auto for center alignment */
+  margin: 0 auto;
+ 
+}
+
+.faq {
+  background-color: transparent;
+  border: 1px solid #9fa4a8;
+  margin: 20px 0;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease;
+  border-radius: 10px;
+}
+
+.faq.active {
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.faq.active::before,
+.faq.active::after {
+  /* Icon Styling */
+  color: #2ecc71;
+  font-size: 7rem;
+  position: absolute;
+  opacity: 0.2;
+  top: 20px;
+  left: 20px;
+  z-index: 0;
+  /* Using unicode value  */
+  content: '\f075';
+  font-family: 'Font Awesome 5 Free';
+}
+
+.faq.active::before {
+  color: #3498db;
+  top: -10px;
+  left: -30px;
+  transform: rotateY(180deg);
+}
+
+.faq-title {
+  margin: 0 35px 0 0;
+}
+
+.faq-text {
+  margin: 30px 0 0;
+  display: none;
+}
+
+.faq.active .faq-text {
+  display: block;
+}
+
+.faq-toggle {
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  border: 0;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  padding: 0;
+  position: absolute;
+  border-radius: 50%;
+  top: 40px;
+  right: 30px;
+  height: 30px;
+  width: 30px;
+}
+#delete-btn{
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  border: 0;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  padding: 0;
+  position: absolute;
+  border-radius: 50%;
+  top: 40px;
+  right: 30px;
+  height: 30px;
+  width: 30px;
+}
+
+.faq-toggle .fa-times {
+  display: none;
+}
+#delete-btn .fa-window-close{
+  display: none;
+}
+.faq.active .faq-toggle .fa-times {
+  display: block;
+  color: #fff;
+}
+.faq.active .faq-toggle .fa-chevron-down {
+  display: none;
+}
+
+.faq-toggle:focus {
+  outline: 0;
+}
+
+.faq.active .faq-toggle {
+  background-color: #9fa4a8;
+}

@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>
+            <%= title%>
+        </title>
+        <meta name="description" content="Union is a beautiful Bootstrap 4 template for multipurpose landing pages." /> 
+
+        <!--Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i" rel="stylesheet">
+
+        <!--Font Awesome styles-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- Bootstrap CSS / Color Scheme -->
+        <link rel="stylesheet" href="/css/default.css" id="theme-color">
+   
+        <link rel="stylesheet" href="/css/default.css" id="theme-color">
+        <link rel="stylesheet" href="/css/home.css">
+        <link rel="stylesheet" href="/css/home2.css">
+    </head>
+    <body>
+         <!--navigation-->
+         <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top sticky-navigation" style="background-color:#29d6a9 !important;">
+            <a class="navbar-brand mx-auto text-white" href="home.ejs">
+              Contact Diary
+             </a>
+            <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" 
+                data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                  <span data-feather="grid"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <a class="nav-link page-scroll text-white fa-lg" href="/create_contact"><i class="fa fa-address-book"></i></a>
+                  </li>
+              
+                  <li class="nav-item ">
+                    <a class="nav-link page-scroll text-white" href="/user/profile">Profile</a>
+                  </li> 
+
+                  <li class="nav-item">
+                    <a class="nav-link page-scroll text-white text-large" href="/user/sign-out">Log Out</a>
+                  </li>
+                </ul>
+            </div>
+         </nav>
+
+       <!--contact display section-->
+       <section class="pt-6">
+          <div class="faq-container">
+            <% if(contact_list.length==0){ %>
+                <h1>Hey! You Have No Contacts</h1>
+               <div class="col-4 mx-auto">
+                <img  class="img-fluid text-center mt-0 rounded-circle" width="200px" src="/images/gif-01.gif" alt="Calling"/>
+               </div>
+               <h2 class="text-center mt-4 mb-0">
+                   <a href="/create_contact">Let's Start 
+                   <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i></a>
+                </h2>
+            <% } else {%>
+            <% for(let i of contact_list) { %>
+                    <div class="faq bg-light">
+                       <h3 class="faq-title"><%=i.name%></h3>
+                         <p class="faq-text">
+                           Email: <%=i.email%><br>
+                           Phone no: <%=i.phone%><br>
+                           Address: <%= i.add %><br>
+                           Date-of-Birth: <%= i.dob %><br>
+                           Relationship: <%= i.relation %><br>
+                           <a href="/delete-contact?id=<%=i._id%>">x</a>
+                         </p> 
+                         <button class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                            <i class="fas fa-times"></i>
+                         </button>      
+                   </div>        
+                <% } %>
+            <% } %>  
+         </div> 
+        </section>  
+
+      <!-- footer starts here-->
+        <footer class="border-top text-center small text-dark py-4 bg-white mt-5">
+          <p style="font-weight: bold;" class="m-0">Copyright &copy; 2022 <a href="/" class="text-dark">Contact Diary</a>. All rights reserved.</p>
+        </footer>
+
+
+      <!-- Toggle-to-top-->
+         <div class="scroll-top">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+         </div>
+  
+      <!--LINK START--->
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.5.0/feather.min.js"></script>
+      <script src="/js/scripts.js"></script>
+      <script type="text/javascript" src="/js/home.js"></script>
+        <base href="/css-collapsible-cards" />
+    </body>
+</html>
