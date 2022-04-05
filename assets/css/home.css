@@ -117,7 +117,7 @@ h1 {
   display: block;
   color: #fff;
 }
-.faq.active .faq-toggle .fa-chevron-down {
+.faq.active .faq-toggle .fa-angle-down {
   display: none;
 }
 
